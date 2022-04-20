@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Sen, sans-serif;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+#main {
+  width: 100vw;
+  position: relative;
+}

@@ -1,0 +1,8 @@
+----- Lịch làm chiều nay ----------
+
+
+- Thêm sản phẩm vào giỏ -> xong
+- render những sản phẩm chưa thanh toán của user -> xong
+- Thanh toán -> chưa xong (chưa làm update status của đơn hàng thành 1 khi thanh toán
+- Lấy ra những sản phẩm đã mua
+- Chỉnh sửa lại code
