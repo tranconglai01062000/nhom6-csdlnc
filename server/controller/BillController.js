@@ -1,5 +1,6 @@
 const Bill = require("../models/bill");
 const Cart = require("../models/cart");
+const CartController = require("./CartController");
 
 class BillController {
   // thanh toán
@@ -7,6 +8,10 @@ class BillController {
     try {
       const bill = new Bill(Obj);
       bill.save();
+      const updates = JSON.parse(Obj.order_list).map((item) => {
+        return CartController.updateCart(item, { status: 1 });
+      });
+      Promise.all(updates);
       return {
         err: false,
         message: "Success !!!",

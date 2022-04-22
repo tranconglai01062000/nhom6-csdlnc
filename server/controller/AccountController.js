@@ -4,72 +4,67 @@ const saltRounds = 10;
 const Account = require("../models/account");
 
 class AccountController {
-  async findAccount(Obj) {
-    return await Account.findOne({ ...Obj }).then((data) => {
-      return data;
-    });
-  }
-
-  // Xử lý đăng ký tài khoản
-  create_account(req, res) {
-    const username = req.body.username;
-    this.findAccount({ username, role: "USER_ROLE" }).then((data) => {
-      if (!Boolean(data)) {
-        // mã hóa password
-        bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-          const newAccount = new Account({
-            ...req.body,
-            password: hash,
-            role: "USER_ROLE",
-          });
-          newAccount.save();
-          return res.json({
-            err: false,
-            information: {
-              ...newAccount["_doc"],
-            },
-          });
-        });
-      } else {
-        return res.json({
-          err: true,
-          information: {},
-        });
-      }
-    });
-  }
-
-  // xử lý login cho user và admin
-  login_page(req, res) {
-    const username = req.body.username;
-    const role = Boolean(req.body.role) ? req.body.role : "USER_ROLE";
-    // return res.json({ role });
-    this.findAccount({ username, role }).then((data) => {
-      if (Boolean(data)) {
-        bcrypt.compare(
+  // chức năng đăng nhập(user)
+  async handle_login(req, res) {
+    try {
+      const account = await Account.findOne({ username: req.body.username });
+      if (Boolean(account)) {
+        const compare = await bcrypt.compare(
           req.body.password,
-          data.password,
-          function (err, result) {
-            if (result) {
-              return res.json({
-                err: false,
-                data,
-              });
-            } else {
-              return res.json({
-                err: true,
-                data: {},
-              });
-            }
-          }
+          account.password
         );
-      } else {
         return res.json({
-          err: true,
-          data: {},
+          err: false,
+          account,
+          mess: "Login successfully !!",
         });
       }
-    });
+      return res.json({
+        err: true,
+        mess: "Username or Password Incorrect !!",
+        account: {},
+      });
+    } catch (error) {
+      console.log(error);
+      return res.json({
+        err: true,
+        mess: "There was an error during the check !!",
+        account: {},
+      });
+    }
+  }
+
+  // chức năng đăng ký
+  async handle_register(req, res) {
+    try {
+      const query = await Account.findOne({ username: req.body.username });
+      if (Boolean(query)) {
+        return res.json({
+          err: true,
+          mess: "Account already exists !!!",
+          account: {},
+        });
+      } else {
+        const new_password = await bcrypt.hash(req.body.password, saltRounds);
+        const account = new Account({
+          ...req.body,
+          password: new_password,
+        });
+        account.save();
+        return res.json({
+          err: false,
+          mess: "Register success !!!",
+          account,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      return res.json({
+        err: true,
+        mess: "There was an error during the check !!!",
+        account: {},
+      });
+    }
   }
 }
 

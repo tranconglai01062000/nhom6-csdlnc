@@ -23,6 +23,20 @@ app.get("/", async (req, res) => {
   return res.json(qr);
 });
 
+// chức năng đăng nhập(user)
+app.post("/login", (req, res) => {
+  try {
+    AccountController.handle_login(req, res);
+  } catch (error) {}
+});
+
+// chức năng đăng ký
+app.post("/register", (req, res) => {
+  try {
+    AccountController.handle_register(req, res);
+  } catch (error) {}
+});
+
 // render sản phẩm theo từng thương hiệu
 app.get("/san-pham/:slug", async (req, res) => {
   const classify = req.params.slug;
