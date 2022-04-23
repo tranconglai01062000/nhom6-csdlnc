@@ -66,6 +66,10 @@ class AccountController {
       });
     }
   }
+
+  getAllAccount() {
+    return Account.find({ role: "USER_ROLE" });
+  }
 }
 
 module.exports = new AccountController();

@@ -1,11 +1,15 @@
 ----- Nhiệm vụ ----------
 
+
+** Lưu ý **
+ - chức năng lấy ra danh sách user có sử dụng midleware
+***********
 - chức năng đăng nhập / đăng ký -> xong
 - Thêm sản phẩm vào giỏ -> xong
 - Thanh toán -> xong
 - render những sản phẩm chưa thanh toán của user -> xong
-- Lấy ra những sản phẩm đã mua
-- Lấy ra danh sách user
+- Lấy ra những sản phẩm đã mua -> xong 
+- Lấy ra danh sách user -> xong
 - thêm sản phẩm mới (admin)
 - cập nhật lại các thông tin sản phẩm(admin)
 - Cập nhật lại thông tin user(admin / user)

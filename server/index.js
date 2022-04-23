@@ -75,3 +75,33 @@ app.get("/bill", async (req, res) => {
   const data = await BillController.getBillById(req.body.user_id);
   return res.json(data);
 });
+
+app.get(
+  "/admin/all-user",
+  (req, res, next) => {
+    const role = req.body.role;
+    if (role === "USER_ROLE") {
+      return res.json({
+        err: true,
+        mess: "You are not admin !!!",
+      });
+    }
+    return next();
+  },
+  async (req, res) => {
+    try {
+      const accounts = await AccountController.getAllAccount();
+      return res.json({
+        err: false,
+        mess: "Success !!",
+        data: accounts,
+      });
+    } catch (error) {
+      return {
+        err: false,
+        mess: "Falid !!!",
+        data: [],
+      };
+    }
+  }
+);
