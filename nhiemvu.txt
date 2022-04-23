@@ -1,8 +1,12 @@
------ Lịch làm chiều nay ----------
+----- Nhiệm vụ ----------
 
-
+- chức năng đăng nhập / đăng ký -> xong
 - Thêm sản phẩm vào giỏ -> xong
+- Thanh toán -> xong
 - render những sản phẩm chưa thanh toán của user -> xong
-- Thanh toán -> chưa xong (chưa làm update status của đơn hàng thành 1 khi thanh toán
 - Lấy ra những sản phẩm đã mua
+- Lấy ra danh sách user
+- thêm sản phẩm mới (admin)
+- cập nhật lại các thông tin sản phẩm(admin)
+- Cập nhật lại thông tin user(admin / user)
 - Chỉnh sửa lại code
