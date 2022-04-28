@@ -14,61 +14,23 @@ export default function FeaturedProduct() {
             <div className={styles.classify}>
               <span>Nike</span>
             </div>
-            <div className={styles.product_item}>
-              <Link to="" className={styles.items}>
+            <div className="product_item">
+              <Link to="" className="items">
                 <div
-                  className={styles.image}
+                  className="image"
                   style={{
                     backgroundImage: `url('https://assets.website-files.com/5e853c3383474026e43f2c78/5e856e41c718420c18dd6751_patrick-hendry-eDgUyGu93Yw-unsplash.jpg')`,
                   }}
                 ></div>
-                <div className={styles.product_information}>
-                  <div className={styles.product_name}>
+                <div className="product_information">
+                  <div className="product_name">
                     <span>Tên sản phẩm</span>
                   </div>
-                  <div className={styles.product_price}>
+                  <div className="product_price">
                     <span>1.000.000đ</span>
                   </div>
                 </div>
-                <div className={styles.details_btn}>
-                  <span>Chi tiết</span>
-                </div>
-              </Link>
-              <Link to="" className={styles.items}>
-                <div
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url('https://assets.website-files.com/5e853c3383474026e43f2c78/5e856e41c718420c18dd6751_patrick-hendry-eDgUyGu93Yw-unsplash.jpg')`,
-                  }}
-                ></div>
-                <div className={styles.product_information}>
-                  <div className={styles.product_name}>
-                    <span>Tên sản phẩm</span>
-                  </div>
-                  <div className={styles.product_price}>
-                    <span>1.000.000đ</span>
-                  </div>
-                </div>
-                <div className={styles.details_btn}>
-                  <span>Chi tiết</span>
-                </div>
-              </Link>
-              <Link to="" className={styles.items}>
-                <div
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url('https://assets.website-files.com/5e853c3383474026e43f2c78/5e856e41c718420c18dd6751_patrick-hendry-eDgUyGu93Yw-unsplash.jpg')`,
-                  }}
-                ></div>
-                <div className={styles.product_information}>
-                  <div className={styles.product_name}>
-                    <span>Tên sản phẩm</span>
-                  </div>
-                  <div className={styles.product_price}>
-                    <span>1.000.000đ</span>
-                  </div>
-                </div>
-                <div className={styles.details_btn}>
+                <div className="details_btn">
                   <span>Chi tiết</span>
                 </div>
               </Link>

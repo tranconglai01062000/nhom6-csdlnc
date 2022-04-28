@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./route";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./common.css";
+import "./common.scss";
 
 import management_state from "./management_state";
 

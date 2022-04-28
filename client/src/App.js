@@ -11,6 +11,7 @@ export default function App() {
         id="content"
         style={{
           minHeight: "100vh",
+          paddingTop: "150px",
         }}
       >
         <Outlet></Outlet>
